@@ -44,6 +44,9 @@ namespace NetTopologySuite.IO.Converters
             double[][][] arcs = null;
             while (reader.Read())
             {
+                if (reader.TokenType == JsonToken.EndObject)
+                    continue;
+
                 if (reader.TokenType != JsonToken.PropertyName)
                     throw new ArgumentException("Expected a property but found " + reader.TokenType);
 
@@ -63,7 +66,6 @@ namespace NetTopologySuite.IO.Converters
                     case "arcs":
                         reader.Read(); // start array
                         arcs = serializer.Deserialize<double[][][]>(reader);
-                        reader.Read(); // end array
                         break;
 
                     default:
