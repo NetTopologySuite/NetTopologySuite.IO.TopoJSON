@@ -19,7 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="NetTopologySuite" Version="1.15.0-pre032" />
+    <!--
+    <PackageReference Include="NetTopologySuite.Features" Version="$(NTSPackageReferenceVersion)" />
+    -->
+    <PackageReference Include="NetTopologySuite.IO.GeoJSON" Version="$(NTSPackageReferenceVersion)" />
     <PackageReference Include="Newtonsoft.Json" Version="9.0.1" />
   </ItemGroup>
 
